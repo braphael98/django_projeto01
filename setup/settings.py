@@ -59,7 +59,7 @@ ROOT_URLCONF = 'setup.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,'templates')], #aqui passa o diretorio dos templates para rodar o HTML
         'APP_DIRS': True, 
         'OPTIONS': {
             'context_processors': [
@@ -116,10 +116,16 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
+# Static files (CSS, JavaScript, Images) #por isso django é phoda 
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+#pra funcionar o STATICFILES, precisa criar uma pasta la em setup
+STATICFILES_DIRS = [ 
+     os.path.join(BASE_DIR,'setup/static')
+]
+
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')#caminho absoluto
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
